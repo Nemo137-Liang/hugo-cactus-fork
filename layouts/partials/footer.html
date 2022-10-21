@@ -1,0 +1,30 @@
+<footer id="footer">
+
+  {{$scratch := newScratch}}
+  {{ range (where .Site.Pages "Kind" "page" )}}
+      {{$scratch.Add "total" .WordCount}}
+  {{ end }}
+
+  <div class="footer-left">
+    Copyright  &copy; {{ now.Format "2006" }} {{ if .Site.Copyright }} {{ print .Site.Copyright | markdownify }} {{ else }} {{ print .Site.Title }} {{ end }}
+  </div>
+  
+  <div class="footer-right">
+    <nav>
+      <ul>
+        {{ now.Format "2006" }} <a href="/">北极粮食站</a>·<i class="fas fa-bell"></i> <a id="days">0</a>Days<br>
+        {{$var := $scratch.Get "total"}}{{$var = div $var 100.0}}{{$var = math.Ceil $var}}{{$var = div $var 10.0}}共书写了{{$var}}k字·共{{ len (where .Site.RegularPages "Section" "!=" "") }}篇文章</br><span><p>
+      </ul>
+    </nav>
+  </div>
+
+  <script>
+    var s1 = '2022-08-31';//设置为建站时间
+    s1 = new Date(s1.replace(/-/g, "/"));
+    s2 = new Date();
+    var days = s2.getTime() - s1.getTime();
+    var number_of_days = parseInt(days / (1000 * 60 * 60 * 24));
+    document.getElementById('days').innerHTML = number_of_days;
+    </script>
+    
+</footer>

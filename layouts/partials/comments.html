@@ -1,0 +1,30 @@
+{{ if (not (isset .Site.Params "comments")) }}
+  {{ .Scratch.Set "enable_comments" false }}
+{{ else if (isset .Params "comments") }}
+  {{ .Scratch.Set "enable_comments" .Params.comments }}
+{{ else if (isset .Site.Params.Comments "enabled") }}
+  {{ .Scratch.Set "enable_comments" .Site.Params.Comments.Enabled }}
+{{ else }}
+  {{ .Scratch.Set "enable_comments" true }}
+{{ end }}
+
+{{ $enable_comments := .Scratch.Get "enable_comments" }}
+{{ if $enable_comments }}
+
+  <div class="blog-post-comments">
+    <h2 class="title is-5"> 评论</h2>
+    <div id="tcomment"></div>
+
+    <script src="https://unpkg.com/twikoo@1.6.7/dist/twikoo.all.min.js"></script>
+    <script>
+    twikoo.init({
+      envId: '这里替换为Vercel的部署地址',  //
+      el: '#tcomment',
+      // region: '', 
+      // path: 'window.location.pathname', // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+      // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/dev/src/js/utils/i18n/index.js
+    })
+    </script>
+    
+  </div>
+{{ end }}

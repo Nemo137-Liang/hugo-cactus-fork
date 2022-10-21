@@ -1,0 +1,25 @@
+.blog-post-comments {
+  padding: 1.5rem;
+  border-radius: .5em;
+
+  display: block;
+  position: relative;
+
+  .tk-submit {
+    padding: 2em 2.5em 1em 1em;
+    background-color: #fdfdffe3;
+    box-shadow: 0 .4em .5em rgba(0, 0, 0, 0.014);
+    border-radius: .8em;
+
+    .tk-avatar {
+      display: inline-block
+    }
+
+  }
+  
+  .tk-comments-title {
+    margin-top: 1em;
+    font-size: 1.1em;
+  }
+
+}

@@ -1,0 +1,236 @@
+article {
+  header {
+    .posttitle {
+      margin-top: 0;
+      margin-bottom: 0;
+      text-transform: none;
+      font-size: 1.5em;
+      line-height: 1.4;
+    }
+    .meta {
+      margin-top: .5em;
+      margin-bottom: 1rem;
+      margin-left: .5em;
+    }
+    .meta * {
+      color: $color-accent-3;
+      font-size: .9rem;
+    }
+    .author {
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      font-weight: 700;
+    }
+    .postdate {
+      display: inline;
+    }
+  }
+  .content {
+    h2 {
+      &:before {
+        position: absolute;
+        top: -4px;
+        left: -1.1rem;
+        color: #df7988;
+        content: "##";
+        font-weight: bold;
+        font-size: .8rem;
+      }
+    }
+  }
+  .content img,
+  .content video {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+
+    /* http://webdesignerwall.com/tutorials/css-elastic-videos */
+    .video-container {
+      position: relative;
+      overflow: hidden;
+      padding-top: 56.25% e;
+      // (9/16 * 100)% // 16:9 ratio
+      height: 0;
+
+      iframe,
+      object,
+      embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .pullquote {
+      margin: 0;
+      width: 45%;
+      text-align: left;
+
+      &.left {
+        margin-right: 1em;
+        margin-left: .5em;
+      }
+      &.right {
+        margin-right: .5em;
+        margin-left: 1em;
+      }
+    }
+    .caption {
+      position: relative;
+      display: block;
+      margin-top: .5em;
+      color: $color-meta;
+      text-align: center;
+      font-size: .9em;
+    }
+  }
+}
+.posttitle {
+  text-transform: none;
+  font-size: 1.5em;
+  line-height: 1.25;
+}
+.article-tag {
+  .tag-link {
+    &:before {
+      content: "#";
+      @include underline(10px, $color-link);
+    }
+  }
+}
+.article-category {
+  .category-link {
+    @include underline(10px, $color-link);
+  }
+}
+@media (min-width: 480px) {
+  .article-read-time,
+  .article-tag,
+  .article-category {
+    display: inline;
+
+    &:before {
+      content: "|";
+    }
+  }
+};
+
+.list-tag {
+  display: auto;
+  
+
+  .tag-link {
+    &:before {
+      content: "#";
+      @include underline(10px, $color-link);
+    }
+    font-size: .75em;
+    margin-top: 0%;
+    padding: 0em .5em;
+    border-radius: 2px;
+    background-color: #6c95cf60;
+    color: rgb(240, 250, 250);
+
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .list-tag {
+    display: inline-block;
+    position: absolute;
+    right: 0em;
+
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .list-tag {
+    display: block;
+    height: .5em;
+    margin-bottom: 2em;
+    margin-left: .4em;
+    clear: left;
+  }
+}
+
+.article-description {
+  margin-left: 1em;
+  margin-right: 2em;
+  border-left: .5em solid #e67d8c;
+  padding: .1em;
+  background: inherit;
+  color: #777777;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+  font-weight: bold;
+
+  p {
+    margin: 0;
+  }
+  &:before {
+    margin-right: .25em;
+    color: $color-quote;
+    content: "";
+    vertical-align: -.4em;
+    font-size: 3em;
+    line-height: .1em;
+  }
+  footer {
+    margin: line-height 0;
+    color: $color-meta;
+    font-size: 11px;
+
+    a {
+      background-image: linear-gradient(transparent, transparent 5px, $color-meta 5px, $color-meta);
+      color: $color-meta;
+    }
+    a:hover {
+      background-image: linear-gradient(transparent, transparent 4px, lighten($color-meta, 20%) 4px, lighten($color-meta, 20%));
+      color: lighten($color-meta, 20%);
+    }
+    cite {
+      &:before {
+        padding: 0 .5em;
+        content: "—";
+      }
+    }
+  }
+}
+
+blockquote {
+  border-left: .2em solid #777777b2;
+  margin: 1rem 10px;
+  padding: 0em 10px;
+  background: inherit;
+  color: #2bbc89d5;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+  font-weight: bold;
+
+  p {
+    margin: .5em;
+  }
+
+  footer {
+    margin: line-height 0;
+    color: $color-meta;
+    font-size: 11px;
+
+    a {
+      background-image: linear-gradient(transparent, transparent 5px, $color-meta 5px, $color-meta);
+      color: $color-meta;
+    }
+    a:hover {
+      background-image: linear-gradient(transparent, transparent 4px, lighten($color-meta, 20%) 4px, lighten($color-meta, 20%));
+      color: lighten($color-meta, 20%);
+    }
+    cite {
+      &:before {
+        padding: 0 .5em;
+        content: "—";
+      }
+    }
+  }
+}
