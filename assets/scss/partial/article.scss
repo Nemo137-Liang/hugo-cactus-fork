@@ -46,7 +46,8 @@ article {
   .content img,
   .content video {
     display: block;
-    margin: auto;
+    position: inherit;
+    margin: 0em;
     max-width: 100%;
     height: auto;
 
